@@ -31,13 +31,13 @@ export default function SearchPage() {
                         </div>
                         <Form onFinish={onFinish}>
                             <Row gutter={[10, 5]}>
-                                <Col flex={'auto'} >
+                                <Col xl={20} sm={20} xs={24} >
                                     <Form.Item name='text'>
-                                        <Input size='large' placeholder="Search your topic" />
+                                        <Input block size='large' placeholder="Search your topic" />
                                     </Form.Item>
                                 </Col>
-                                <Col flex={'120px'}>
-                                    <Button htmlType='submit' size='large' type="primary">Search</Button>
+                                <Col xl={4} sm={4} xs={24}>
+                                    <Button block htmlType='submit' size='large' type="primary">Search</Button>
                                 </Col>
                             </Row>
                         </Form>
