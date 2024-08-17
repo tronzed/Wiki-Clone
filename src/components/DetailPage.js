@@ -1,6 +1,6 @@
 import { Button, Divider, Flex } from 'antd';
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
 import logo from '../images/logo2.png'
 import { LoadingOutlined } from '@ant-design/icons';
 
@@ -45,7 +45,9 @@ export default function DetailPage() {
 
             <Flex justify="space-between" align='center'>
                 <div style={{ maxWidth: '170px' }}>
+                <Link to="/">
                     <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
+                </Link>
                 </div>
                 <Button onClick={() => navigate('/')}>Back</Button>
             </Flex>

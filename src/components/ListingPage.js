@@ -55,16 +55,24 @@ export default function ListingPage() {
 
                 <Flex justify="space-between" align='center'>
                     <div style={{ maxWidth: '170px' }}>
-                        <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
-
+                        <Link to="/">
+                            <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
+                        </Link>
                     </div>
                     <Button onClick={() => navigate('/')}>Back</Button>
                 </Flex>
                 <Divider />
 
-                {!dataBox && (
-                        <img style={{ maxWidth: '100%' }} src={no_result} alt='logo' />
+                {!dataBox?.length && (
+                    <>
+                        <Flex justify='center'>
+                            <img style={{ maxWidth: '100%' }} src={no_result} alt='logo' />
+                        </Flex>
+                    </>
                 )}
+
+
+                {console.log(dataBox?.query?.search)}
 
                 <List>
                     {

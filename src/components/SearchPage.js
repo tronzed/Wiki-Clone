@@ -1,6 +1,7 @@
 import { Button, Col, Flex, Form, Input, Layout, Row } from 'antd';
 import { useNavigate } from 'react-router-dom';
 import logo from '../images/logo.png'
+import vid from '../images/bg_02.mp4'
 
 export default function SearchPage() {
 
@@ -13,7 +14,12 @@ export default function SearchPage() {
 
     return (
         <>
-            <Layout style={{ padding: "30px 30px", height: '100vh' }}>
+        
+            <video muted loop style={{ position: 'absolute', top: '0', left: '0',width:'100%',height:'100%',objectFit:'cover' }} autoPlay={true} controls={false}>
+                <source src={vid} type="video/mp4" />
+            </video>
+
+            <Layout style={{ padding: "30px 30px", height: '100vh', background: 'transparent', position: 'relative', zIndex: '5' }}>
                 <Flex justify='center' align='center' style={{ height: '70vh' }}>
                     <div style={{ maxWidth: '500px', width: '100%' }}>
                         <div style={{ maxWidth: '200px', margin: 'auto auto 20px' }}>
