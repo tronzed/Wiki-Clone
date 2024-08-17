@@ -1,6 +1,7 @@
-import { Col } from 'antd';
+import { Button, Divider, Flex, List } from 'antd';
 import React, { useEffect, useState } from 'react'
-import { Link, useParams } from 'react-router-dom';
+import { Link, useNavigate, useParams } from 'react-router-dom';
+import logo from '../images/logo.png'
 
 export default function ListingPage() {
 
@@ -8,6 +9,8 @@ export default function ListingPage() {
     const [dataBox, setDataBox] = useState(null);
 
     const { id } = useParams();
+
+    const navigate = useNavigate();
 
     const searchNow = async () => {
 
@@ -31,22 +34,37 @@ export default function ListingPage() {
 
     useEffect(() => {
         searchNow()
-    },[])
+    }, [])
 
     return (
-        <div>
-            <Col span={24}>
-                {
-                    dataBox?.map((item, index) => (
-                        <>
-                            <Link to={`/single/${item.title}`}>
-                                <h3 key={index}>{item.title}</h3>
-                            </Link>
-                            <hr />
-                        </>
-                    ))
-                }
-            </Col>
-        </div>
+        <>
+            <div style={{ padding: '10px 30px', maxWidth: '1170px', margin: 'auto' }}>
+
+                <Flex justify="space-between" align='center'>
+                    <div style={{ maxWidth: '100px' }}>
+                        <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
+
+                    </div>
+                    <Button onClick={()=> navigate('/')}>Back</Button>
+                </Flex>
+                <Divider />
+                <List>
+                    {
+                        dataBox?.map((item, index) => (
+                            <>
+                                <List.Item>
+                                    <div>
+                                        <Link to={`/single/${item.title}`}>
+                                            <h3 style={{ margin: '0' }} key={index}>{item.title}</h3>
+                                        </Link>
+                                        <div dangerouslySetInnerHTML={{ __html: item.snippet }}></div>
+                                    </div>
+                                </List.Item>
+                            </>
+                        ))
+                    }
+                </List>
+            </div>
+        </>
     )
 }

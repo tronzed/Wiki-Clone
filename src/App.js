@@ -4,6 +4,8 @@ import { BrowserRouter, Route, Routes } from "react-router-dom";
 import NotFound from "./components/NotFound";
 import ListingPage from "./components/ListingPage";
 
+import './style.css'
+
 function App() {
   return (
     <div className="App">
