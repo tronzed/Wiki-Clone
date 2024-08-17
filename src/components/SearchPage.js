@@ -29,16 +29,12 @@ export default function SearchPage() {
         <>
             <Layout style={{ padding: "30px 30px" }}>
                 <Row gutter={[24, 24]}>
-
                     <Col span={24}>
-
                         <Form>
                             <Input onChange={(e)=> searchNow(e.currentTarget.value)} size='large' placeholder="Basic usage" />
                             <Button type="submit">Submit</Button>
                         </Form>
-
                     </Col>
-
                     <Col span={24}>
                         {
                             dataBox?.map((item, index) => (
