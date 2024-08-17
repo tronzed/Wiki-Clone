@@ -1,8 +1,11 @@
 import React, { useEffect, useState } from 'react'
+import { useParams } from 'react-router-dom';
 
 export default function DetailPage() {
 
     const [dataBox, setDataBox] = useState(null);
+
+    const {id} = useParams();
 
     const fetchDetail = async () => {
 
@@ -10,7 +13,7 @@ export default function DetailPage() {
 
         const params = {
             action: "parse",
-            page: "56400181",
+            page: id,
             format: "json",
             origin: "*",
         }

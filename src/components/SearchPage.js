@@ -1,53 +1,40 @@
-import { Button, Col, Form, Input, Layout, Row } from 'antd';
-import React, { useState } from 'react'
+import { Button, Col, Flex, Form, Input, Layout, Row } from 'antd';
+import { useNavigate } from 'react-router-dom';
+import logo from '../images/logo.png'
 
 export default function SearchPage() {
 
-    const [dataBox, setDataBox] = useState(null);
+    const navigate = useNavigate();
 
-    const searchNow = async (text) => {
-
-        const url = 'https://en.wikipedia.org/w/api.php';
-
-        const params = {
-            action: "query",
-            list: "search",
-            srsearch: text,
-            format: "json",
-            origin: "*", // To avoid CORS issues
-        };
-
-        const queryString = new URLSearchParams(params).toString();
-        const api = `${url}?${queryString}`
-        const res = await fetch(api);
-        const data = await res.json()
+    const onFinish = (data) => {
         console.log(data)
-        setDataBox(data?.query?.search)
+        navigate(`/listing/${data.text}`);
     }
 
     return (
         <>
-            <Layout style={{ padding: "30px 30px" }}>
-                <Row gutter={[24, 24]}>
-                    <Col span={24}>
-                        <Form>
-                            <Input onChange={(e)=> searchNow(e.currentTarget.value)} size='large' placeholder="Basic usage" />
-                            <Button type="submit">Submit</Button>
-                        </Form>
-                    </Col>
-                    <Col span={24}>
-                        {
-                            dataBox?.map((item, index) => (
-                                <>
-                                    <h3 key={index}>{item.title}</h3>
-                                    <hr />
-                                </>
-                            ))
-                        }
-                    </Col>
-                </Row>
-            </Layout>
+            <Layout style={{ padding: "30px 30px", height: '100vh' }}>
+                <Flex justify='center' align='center' style={{ height: '70vh' }}>
+                    <Row gutter={[24, 24]}>
+                        <Col span={24}>
+                            <div style={{ maxWidth: '600px' }}>
+                                <div style={{ maxWidth: '200px', margin: 'auto auto 20px' }}>
+                                    <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
+                                </div>
+                                <Form onFinish={onFinish}>
+                                    <Flex gap={5}>
+                                        <Form.Item name='text'>
+                                            <Input size='large' placeholder="Search your topic" />
+                                        </Form.Item>
+                                        <Button htmlType='submit' size='large' type="primary">Submit</Button>
+                                    </Flex>
+                                </Form>
+                            </div>
+                        </Col>
 
+                    </Row>
+                </Flex>
+            </Layout>
         </>
     )
 }
