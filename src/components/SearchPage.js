@@ -14,19 +14,22 @@ export default function SearchPage() {
 
     return (
         <>
-        
-            <video muted loop style={{ position: 'absolute', top: '0', left: '0',width:'100%',height:'100%',objectFit:'cover' }} autoPlay={true} controls={false}>
+
+            <Flex justify='center' align='center' style={{ width: '100%', height: '100%', position: 'absolute', top: '0', left: '0', background: '#000', opacity: '0.45', zIndex: '5' }}>
+            x
+            </Flex>
+
+            <video muted loop style={{ position: 'absolute', top: '0', left: '0', width: '100%', height: '100%', objectFit: 'cover' }} autoPlay={true} controls={false}>
                 <source src={vid} type="video/mp4" />
             </video>
 
             <Layout style={{ padding: "30px 30px", height: '100vh', background: 'transparent', position: 'relative', zIndex: '5' }}>
                 <Flex justify='center' align='center' style={{ height: '70vh' }}>
                     <div style={{ maxWidth: '500px', width: '100%' }}>
-                        <div style={{ maxWidth: '200px', margin: 'auto auto 20px' }}>
+                        <div style={{ maxWidth: '200px', margin: 'auto auto 40px' }}>
                             <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
                         </div>
                         <Form onFinish={onFinish}>
-
                             <Row gutter={[10, 5]}>
                                 <Col flex={'auto'} >
                                     <Form.Item name='text'>
@@ -37,10 +40,8 @@ export default function SearchPage() {
                                     <Button htmlType='submit' size='large' type="primary">Search</Button>
                                 </Col>
                             </Row>
-
                         </Form>
                     </div>
-
                 </Flex>
             </Layout>
         </>
