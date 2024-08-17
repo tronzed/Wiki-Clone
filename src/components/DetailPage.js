@@ -1,12 +1,14 @@
 import { Button, Divider, Flex } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { useNavigate, useParams } from 'react-router-dom';
-import logo from '../images/logo.png'
+import logo from '../images/logo2.png'
+import { LoadingOutlined } from '@ant-design/icons';
 
 export default function DetailPage() {
 
     const [dataBox, setDataBox] = useState(null);
     const { id } = useParams();
+    const [loader, setLoader] = useState(true);
     const navigate = useNavigate();
     const fetchDetail = async () => {
 
@@ -25,6 +27,7 @@ export default function DetailPage() {
         const data = await res.json();
         console.log(data)
         setDataBox(data?.parse?.text['*']);
+        setLoader(false)
     }
 
     useEffect(() => {
@@ -33,10 +36,16 @@ export default function DetailPage() {
 
     return (
         <div style={{ padding: '10px 30px', maxWidth: '1170px', margin: 'auto' }}>
-            <Flex justify="space-between" align='center'>
-                <div style={{ maxWidth: '100px' }}>
-                    <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
 
+            {loader && (
+                <Flex justify='center' align='center' style={{ width: '100%', height: '100%', position: 'absolute', top: '0', left: '0', background: '#fff', opacity: '0.8', zIndex: '5' }}>
+                    <LoadingOutlined style={{ fontSize: '50px' }} />
+                </Flex>
+            )}
+
+            <Flex justify="space-between" align='center'>
+                <div style={{ maxWidth: '170px' }}>
+                    <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
                 </div>
                 <Button onClick={() => navigate('/')}>Back</Button>
             </Flex>
