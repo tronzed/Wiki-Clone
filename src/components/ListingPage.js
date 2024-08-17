@@ -2,6 +2,7 @@ import { Button, Divider, Flex, List } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import logo from '../images/logo2.png'
+import no_result from '../images/no_result.jpg'
 import { LoadingOutlined } from '@ant-design/icons';
 
 export default function ListingPage() {
@@ -33,7 +34,9 @@ export default function ListingPage() {
         const data = await res.json()
         console.log(data)
         setDataBox(data?.query?.search)
+
         setLoader(false)
+
     }
 
     useEffect(() => {
@@ -58,6 +61,11 @@ export default function ListingPage() {
                     <Button onClick={() => navigate('/')}>Back</Button>
                 </Flex>
                 <Divider />
+
+                {!dataBox && (
+                        <img style={{ maxWidth: '100%' }} src={no_result} alt='logo' />
+                )}
+
                 <List>
                     {
                         dataBox?.map((item, index) => (
