@@ -1915,7 +1915,7 @@ figure[typeof~='mw:File/Thumb'] > figcaption:empty {
     }
 
     html,body {
-        font-family: sans-serif
+        
     }
 
     ul {
@@ -1942,7 +1942,7 @@ figure[typeof~='mw:File/Thumb'] > figcaption:empty {
     }
 
     .mw-editsection,.mw-editsection-like {
-        font-family: sans-serif
+        
     }
 
     .mw-body h1,.mw-body .mw-heading1,.mw-body-content h1,.mw-body-content .mw-heading1,.mw-body-content h2,.mw-body-content .mw-heading2 {
@@ -1951,7 +1951,7 @@ figure[typeof~='mw:File/Thumb'] > figcaption:empty {
     }
 
     .mw-body h1:lang(ja),.mw-body .mw-heading1:lang(ja),.mw-body-content h1:lang(ja),.mw-body-content .mw-heading1:lang(ja),.mw-body-content h2:lang(ja),.mw-body-content .mw-heading2:lang(ja),.mw-body h1:lang(he),.mw-body .mw-heading1:lang(he),.mw-body-content h1:lang(he),.mw-body-content .mw-heading1:lang(he),.mw-body-content h2:lang(he),.mw-body-content .mw-heading2:lang(he),.mw-body h1:lang(ko),.mw-body .mw-heading1:lang(ko),.mw-body-content h1:lang(ko),.mw-body-content .mw-heading1:lang(ko),.mw-body-content h2:lang(ko),.mw-body-content .mw-heading2:lang(ko) {
-        font-family: sans-serif
+        
     }
 
     .mw-body h1:lang(ckb),.mw-body .mw-heading1:lang(ckb),.mw-body-content h1:lang(ckb),.mw-body-content .mw-heading1:lang(ckb),.mw-body-content h2:lang(ckb),.mw-body-content .mw-heading2:lang(ckb) {
@@ -3473,7 +3473,7 @@ figure[typeof~='mw:File/Thumb'] > figcaption:empty {
     }
 
     .printfooter,.mw-footer,.thumb,figure,table,ol,dl,ul,.mw-heading3,h3,.mw-heading4,h4,.mw-heading5,h5,.mw-heading6,h6 {
-        font-family: sans-serif
+        
     }
 
     img {
@@ -5421,17 +5421,19 @@ span.mwe-math-mathml-inline {
 }
 
 .infobox {
-    border: 1px solid #a2a9b1;
-    border-spacing: 3px;
-    background-color: #f8f9fa;
-    color: black;
-    margin: 0.5em 0 0.5em 1em;
-    padding: 0.2em;
-    float: right;
-    clear: right;
-    font-size: 88%;
-    line-height: 1.5em;
-    width: 22em
+	border: 1px solid #a2a9b1;
+	border-spacing: 3px;
+	background-color: #f8f9fa;
+	color: black;
+	margin: 0.5em 3em 1.5em 0;
+	padding: 1.2em 2.2em;
+	float: left;
+	clear: right;
+	font-size: 88%;
+	line-height: 1.5em;
+	width: 22em;
+	box-shadow: 12px 12px 0 0 #ededed;
+	border-radius: 11px;
 }
 
 .infobox-header,.infobox-label,.infobox-above,.infobox-full-data,.infobox-data,.infobox-below,.infobox-subheader,.infobox-image,.infobox-navbar,.infobox th,.infobox td {
@@ -5575,3 +5577,28 @@ span.texhtml span.texhtml {
         border: 0
     }
 }
+
+
+
+/* t edit start */
+
+.mw-editsection {
+	display: none;
+}
+.infobox .mw-file-element {
+	border-radius: 7px;
+}
+a {
+	color: #000;
+	/* cursor: text; */
+}
+.reflist {
+	display: none;
+}
+.navbox {
+	display: none;
+}
+
+
+
+/* t edit end */
