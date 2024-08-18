@@ -57,17 +57,13 @@ export default function DetailPage() {
             </div>
             <Divider />
 
-            <div style={{ padding: '10px 30px', maxWidth: '1170px', margin: 'auto' }}>
-
+            <div className='detail_container'>
                 {loader && (
                     <Flex justify='center' align='center' style={{ width: '100%', height: '100%', position: 'absolute', top: '0', left: '0', background: '#fff', opacity: '0.8', zIndex: '5' }}>
                         <LoadingOutlined style={{ fontSize: '50px' }} />
                     </Flex>
                 )}
-
-
-                <div dangerouslySetInnerHTML={{ __html: dataBox }}></div>
-
+                <div style={{boxShadow:'0px 280px 930px -250px #000',padding:'0 20px'}} dangerouslySetInnerHTML={{ __html: dataBox }}></div>
             </div>
         </>
     )

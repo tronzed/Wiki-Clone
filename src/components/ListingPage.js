@@ -1,4 +1,4 @@
-import { Button, Divider, Flex, List } from 'antd';
+import { Button, Card, Divider, Flex, List } from 'antd';
 import React, { useEffect, useState } from 'react'
 import { Link, useNavigate, useParams } from 'react-router-dom';
 import logo from '../images/logo2.png'
@@ -85,12 +85,14 @@ export default function ListingPage() {
                         dataBox?.map((item, index) => (
                             <>
                                 <List.Item>
-                                    <div>
-                                        <Link to={`/single/${item.title}`}>
-                                            <h3 style={{ margin: '0' }} key={index}>{item.title}</h3>
-                                        </Link>
-                                        <div dangerouslySetInnerHTML={{ __html: item.snippet }}></div>
-                                    </div>
+                                    <Link style={{ width: '100%' }} to={`/single/${item.title}`}>
+                                        <Card>
+                                            <div>
+                                                <h3 style={{ margin: '0' }} key={index}>{item.title}</h3>
+                                                <div dangerouslySetInnerHTML={{ __html: item.snippet }}></div>
+                                            </div>
+                                        </Card>
+                                    </Link>
                                 </List.Item>
                             </>
                         ))
