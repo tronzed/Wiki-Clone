@@ -41,7 +41,7 @@ export default function DetailPage() {
     }
 
     useEffect(() => {
-        fetchDetail()
+        fetchDetail() 
     }, []);
 
     return (
