@@ -43,25 +43,32 @@ export default function DetailPage() {
     }, []);
 
     return (
-        <div style={{ padding: '10px 30px', maxWidth: '1170px', margin: 'auto' }}>
+        <>
 
-            {loader && (
-                <Flex justify='center' align='center' style={{ width: '100%', height: '100%', position: 'absolute', top: '0', left: '0', background: '#fff', opacity: '0.8', zIndex: '5' }}>
-                    <LoadingOutlined style={{ fontSize: '50px' }} />
+            <div style={{ padding: '10px 30px', maxWidth: '1170px', margin: 'auto' }}>
+                <Flex justify="space-between" align='center'>
+                    <div style={{ maxWidth: '170px' }}>
+                        <Link to="/">
+                            <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
+                        </Link>
+                    </div>
+                    <Button onClick={() => navigate('/')}>Back</Button>
                 </Flex>
-            )}
-
-            <Flex justify="space-between" align='center'>
-                <div style={{ maxWidth: '170px' }}>
-                    <Link to="/">
-                        <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
-                    </Link>
-                </div>
-                <Button onClick={() => navigate('/')}>Back</Button>
-            </Flex>
+            </div>
             <Divider />
-            <div dangerouslySetInnerHTML={{ __html: dataBox }}></div>
 
-        </div>
+            <div style={{ padding: '10px 30px', maxWidth: '1170px', margin: 'auto' }}>
+
+                {loader && (
+                    <Flex justify='center' align='center' style={{ width: '100%', height: '100%', position: 'absolute', top: '0', left: '0', background: '#fff', opacity: '0.8', zIndex: '5' }}>
+                        <LoadingOutlined style={{ fontSize: '50px' }} />
+                    </Flex>
+                )}
+
+
+                <div dangerouslySetInnerHTML={{ __html: dataBox }}></div>
+
+            </div>
+        </>
     )
 }
