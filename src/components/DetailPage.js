@@ -10,6 +10,17 @@ export default function DetailPage() {
     const { id } = useParams();
     const [loader, setLoader] = useState(true);
     const navigate = useNavigate();
+
+    const allLinks = document.querySelectorAll('a')
+
+    for (let i = 0; i < allLinks.length; i++) {
+        allLinks[i].addEventListener('click',function(e){
+            e.preventDefault();
+            let link = allLinks[i].getAttribute('title');
+            navigate(`/listing/${link}`);
+        });
+    }
+
     const fetchDetail = async () => {
 
         const url = "https://en.wikipedia.org/w/api.php";
@@ -25,7 +36,6 @@ export default function DetailPage() {
         const api = `${url}?${queryString}`;
         const res = await fetch(api);
         const data = await res.json();
-        console.log(data)
         setDataBox(data?.parse?.text['*']);
         setLoader(false)
     }
@@ -45,9 +55,9 @@ export default function DetailPage() {
 
             <Flex justify="space-between" align='center'>
                 <div style={{ maxWidth: '170px' }}>
-                <Link to="/">
-                    <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
-                </Link>
+                    <Link to="/">
+                        <img style={{ maxWidth: '100%' }} src={logo} alt='logo' />
+                    </Link>
                 </div>
                 <Button onClick={() => navigate('/')}>Back</Button>
             </Flex>
