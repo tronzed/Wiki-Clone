@@ -14,25 +14,22 @@ export default function DetailPage() {
     const allLinks = document.querySelectorAll('a')
 
     for (let i = 0; i < allLinks.length; i++) {
-        allLinks[i].addEventListener('click',function(e){
+        allLinks[i].addEventListener('click', function (e) {
             e.preventDefault();
             let link = allLinks[i].getAttribute('title');
             navigate(`/listing/${link}`);
-            console.log('link-->',link)
+            console.log('link-->', link)
         });
     }
 
     const fetchDetail = async () => {
-
         const url = "https://en.wikipedia.org/w/api.php";
-
         const params = {
             action: "parse",
             page: id,
             format: "json",
             origin: "*",
         }
-
         const queryString = new URLSearchParams(params).toString();
         const api = `${url}?${queryString}`;
         const res = await fetch(api);
@@ -42,7 +39,7 @@ export default function DetailPage() {
     }
 
     useEffect(() => {
-        fetchDetail() 
+        fetchDetail()
     }, []);
 
     return (
