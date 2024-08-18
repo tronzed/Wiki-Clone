@@ -5589,7 +5589,7 @@ span.texhtml span.texhtml {
 	border-radius: 7px;
 }
 a {
-	color: #000;
+	/* color: #000; */
 	/* cursor: text; */
 }
 .reflist {
