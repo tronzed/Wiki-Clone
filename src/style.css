@@ -6572,7 +6572,7 @@ span.mwe-math-mathml-inline {
 .infobox {
     border: 1px solid #a2a9b1;
     border-spacing: 3px;
-    background-color: #f8f9fa;
+    background-color: #fff;
     color: black;
     margin: 0.5em 3em 1.5em 0;
     padding: 1.2em 2.2em;
@@ -6813,6 +6813,10 @@ a {
     padding: 10px 30px;
     max-width: 1170px;
     margin: auto;
+}
+
+.infobox .infobox-above {
+    border-radius: 5px;
 }
 
 
