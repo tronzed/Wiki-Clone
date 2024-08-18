@@ -9,17 +9,14 @@ export default function ListingPage() {
 
 
     const [dataBox, setDataBox] = useState(null);
-
+    const [suggestion, setSuggestion] = useState(null);
     const [loader, setLoader] = useState(true);
 
     const { id } = useParams();
-
     const navigate = useNavigate();
 
     const searchNow = async () => {
-
         const url = 'https://en.wikipedia.org/w/api.php';
-
         const params = {
             action: "query",
             list: "search",
@@ -27,16 +24,19 @@ export default function ListingPage() {
             format: "json",
             origin: "*", // To avoid CORS issues
         };
-
         const queryString = new URLSearchParams(params).toString();
         const api = `${url}?${queryString}`
         const res = await fetch(api);
         const data = await res.json()
         console.log(data)
         setDataBox(data?.query?.search)
-
+        setSuggestion(data?.query.searchinfo.suggestion)
         setLoader(false)
+    }
 
+    const notFound = (data) => {
+        navigate(`/listing/${data}`);
+        window.location.reload();
     }
 
     useEffect(() => {
@@ -65,12 +65,18 @@ export default function ListingPage() {
 
                 {!dataBox?.length && (
                     <>
+
+                        {suggestion && (
+                            <Flex justify='center'>
+                                <h4>Do you mean: <Button onClick={() => notFound(suggestion)}>{suggestion}</Button></h4>
+                            </Flex>
+                        )}
+
                         <Flex justify='center'>
                             <img style={{ maxWidth: '100%' }} src={no_result} alt='logo' />
                         </Flex>
                     </>
                 )}
-
 
                 {console.log(dataBox?.query?.search)}
 
