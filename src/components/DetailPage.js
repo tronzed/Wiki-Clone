@@ -63,7 +63,7 @@ export default function DetailPage() {
                         <LoadingOutlined style={{ fontSize: '50px' }} />
                     </Flex>
                 )}
-                <div style={{boxShadow:'0px 280px 930px -250px #000',padding:'0 20px'}} dangerouslySetInnerHTML={{ __html: dataBox }}></div>
+                <div style={{boxShadow:'0px 280px 930px -250px #000',padding:'0 20px 20px'}} dangerouslySetInnerHTML={{ __html: dataBox }}></div>
             </div>
         </>
     )

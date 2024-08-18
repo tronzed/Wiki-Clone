@@ -6810,7 +6810,7 @@ a {
 }
 
 .detail_container {
-    padding: 10px 30px;
+    padding: 10px 30px 0;
     max-width: 1170px;
     margin: auto;
 }
