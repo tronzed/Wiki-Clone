@@ -11,17 +11,6 @@ export default function DetailPage() {
     const [loader, setLoader] = useState(true);
     const navigate = useNavigate();
 
-    const allLinks = document.querySelectorAll('a')
-
-    for (let i = 0; i < allLinks.length; i++) {
-        allLinks[i].addEventListener('click',function(e){
-            e.preventDefault();
-            let link = allLinks[i].getAttribute('title');
-            navigate(`/listing/${link}`);
-            console.log('link-->',link)
-        });
-    }
-
     const fetchDetail = async () => {
 
         const url = "https://en.wikipedia.org/w/api.php";
@@ -42,7 +31,19 @@ export default function DetailPage() {
     }
 
     useEffect(() => {
-        fetchDetail() 
+        fetchDetail()
+
+        const allLinks = document.querySelectorAll('a')
+
+        for (let i = 0; i < allLinks.length; i++) {
+            allLinks[i].addEventListener('click', function (e) {
+                e.preventDefault();
+                let link = allLinks[i].getAttribute('title');
+                navigate(`/listing/${link}`);
+                console.log('link-->', link)
+            });
+        }
+
     }, []);
 
     return (
