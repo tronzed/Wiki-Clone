@@ -18,6 +18,7 @@ export default function DetailPage() {
             e.preventDefault();
             let link = allLinks[i].getAttribute('title');
             navigate(`/listing/${link}`);
+            console.log('link-->',link)
         });
     }
 
